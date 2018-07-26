@@ -1,0 +1,1 @@
+create table user (userId int, username varchar(255), age int, gender varchar(100))
