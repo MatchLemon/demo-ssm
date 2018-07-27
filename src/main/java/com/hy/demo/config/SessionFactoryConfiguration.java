@@ -6,18 +6,22 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 import java.io.IOException;
 
 @Configuration
+//@EnableTransactionManagement
 public class SessionFactoryConfiguration {
 
 
     @Value("${mapper.xml.config.path}")
     private String mapperXMLConfigPath;
     @Value("${mapper.package.path}")
-    private String mapperPackagePath;
+    private String modlePackagePath;
     @Autowired
     private DataSource dataSource;
 
@@ -32,8 +36,16 @@ public class SessionFactoryConfiguration {
         // 设置数据源
         sqlSessionFactoryBean.setDataSource(dataSource);
         // 设置mapper 接口所在的包
-        sqlSessionFactoryBean.setTypeAliasesPackage(mapperPackagePath);
+        sqlSessionFactoryBean.setTypeAliasesPackage(modlePackagePath);
+
 
         return sqlSessionFactoryBean;
     }
+
+//    @Bean
+//    public PlatformTransactionManager txManager (DataSource dataSource) {
+//        DataSourceTransactionManager dataSourceTransactionManager = new DataSourceTransactionManager(dataSource);
+//        return new DataSourceTransactionManager(dataSource);
+//    }
+
 }

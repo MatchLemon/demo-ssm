@@ -4,7 +4,7 @@ public class User {
     private Integer userId;
     private String username;
     private Integer age;
-    private char gender;
+    private String gender;
 
     public Integer getUserId() {
         return userId;
@@ -30,11 +30,11 @@ public class User {
         this.age = age;
     }
 
-    public char getGender() {
+    public String getGender() {
         return gender;
     }
 
-    public void setGender(char gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 }

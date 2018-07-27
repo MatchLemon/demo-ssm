@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hy.demo.mapper.UserMapper">
-    <select id="getUser" resultType="com.hy.demo.models.User">
+    <select id="getUser" resultType="User">
         SELECT * FROM user WHERE userId = #{userId}
     </select>
+    <insert id="saveUser" parameterType="User"  useGeneratedKeys="true" keyProperty="userId">
+        insert into user(userId,username,age,gender) values (#{userId}, #{username}, #{age}, #{gender})
+    </insert>
 </mapper>
