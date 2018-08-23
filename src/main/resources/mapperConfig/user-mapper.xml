@@ -7,4 +7,6 @@
     <insert id="saveUser" parameterType="User"  useGeneratedKeys="true" keyProperty="userId">
         insert into user(userId,username,age,gender) values (#{userId}, #{username}, #{age}, #{gender})
     </insert>
+    <!--<resultMap id="" type=""></resultMap>-->
+    <!--<parameterMap id="" type=""></parameterMap>-->
 </mapper>

@@ -15,6 +15,8 @@ public class UserService {
     public User getOne(Integer id) {
         return userMapper.getUser(id);
     }
+
+    @Transactional
     public Integer save(User user) {
 
         Integer res = userMapper.saveUser(user);
